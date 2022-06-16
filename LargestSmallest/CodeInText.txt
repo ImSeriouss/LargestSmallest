@@ -1,0 +1,50 @@
+##### FUNCTIONS USED #####
+
+def largest_number(given_numbers):
+    largest = -1
+    for value in given_numbers:
+        if value > largest:
+            largest = value
+    print("The LARGEST number in the given list is: ", largest)
+
+def smallest_number(given_numbers):
+    smallest = None
+    for value in given_numbers:
+        if smallest is None:
+            smallest = value
+        elif value < smallest:
+            smallest = value
+    print("The SMALLEST number in the given list is: ", smallest)
+
+
+
+print("This application is used to find the SMALLEST or the LARGEST number in a given list.")
+##### GETTING INPUT #####
+
+while True:
+    given_numbers = input("Please type a list of numbers seperated by a space: " )
+    try:
+        given_numbers = given_numbers.split()
+
+        ##### CONVERTING THE LIST TO INTEGER #####
+        given_numbers = list(map(int, given_numbers))
+    except:
+            print("The list must be seperated by a space")
+
+    ##### DECIDING FUNCTIONS #####
+    n = input("Do you want to find the SMALLEST or the LARGEST number in the list? (smallest/largest)" )
+    n = n.lower()
+    if n == "smallest":
+        smallest_number(given_numbers)
+    elif n == "largest":
+        largest_number(given_numbers)
+
+##### BREAKING THE LOOP #####
+    k = input("Do you want to restart? (y/n)" )
+    k = k.lower()
+    if k == "n":
+        break
+    elif k == "y":
+        continue
+    else:
+        print("No other answers other than y or n. Please restart this program.")
